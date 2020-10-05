@@ -1,6 +1,6 @@
 import './styles.css'
-import {createStore} from 'redux'
-import {rootReducer} from './redux/rootReducer'
+import { createStore } from 'redux'
+import { rootReducer } from './redux/rootReducer'
 
 const store = createStore(rootReducer, 0)
 
@@ -10,25 +10,25 @@ const btnSub = document.getElementById('sub')
 const btnAsync = document.getElementById('async')
 const btnTheme = document.getElementById('theme')
 
-btnAdd.addEventListener('click', ()=>{
     store.dispatch({type: 'INCREMENT'})
+btnAdd.addEventListener('click', () => {
 })
 
-btnSub.addEventListener('click', ()=>{
     store.dispatch({type: 'DECREMENT'})
+btnSub.addEventListener('click', () => {
 })
 
-store.subscribe(()=>{
+store.subscribe(() => {
     const state = store.getState()
     counter.textContent = state.toString()
 })
-store.dispatch({type: 'INIT_APPLICATION'})
+store.dispatch({ type: 'INIT_APPLICATION' })
 
-btnAsync.addEventListener('click', ()=>{
-    console.log('no async task is here yet.')    
+btnAsync.addEventListener('click', () => {
+    console.log('no async task is here yet.')
 })
 
-btnTheme.addEventListener('click', ()=>{
+btnTheme.addEventListener('click', () => {
     // document.body.classList.toggle('dark')
     console.log('no theme change is here yet.')
 })

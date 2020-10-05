@@ -12,24 +12,24 @@ function render() {
     counter.textContent = state.toString()
 }
 
-btnAdd.addEventListener('click', ()=>{
+btnAdd.addEventListener('click', () => {
     state++
     render()
 })
 
-btnSub.addEventListener('click', ()=>{
+btnSub.addEventListener('click', () => {
     state--
     render()
 })
 
-btnAsync.addEventListener('click', ()=>{
-    setTimeout(()=>{
+btnAsync.addEventListener('click', () => {
+    setTimeout(() => {
         state++
-        render()    
+        render()
     }, 2000)
 })
 
-btnTheme.addEventListener('click', ()=>{
+btnTheme.addEventListener('click', () => {
     document.body.classList.toggle('dark')
 })
 
