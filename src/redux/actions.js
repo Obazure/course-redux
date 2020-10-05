@@ -1,4 +1,4 @@
-import { INCREMENT, DECREMENT, ASYNC_INCREMENT } from './types'
+import { INCREMENT, DECREMENT, ASYNC_INCREMENT, CHANGE_THEME } from './types'
 
 export const increment = () => {
     return {
@@ -19,6 +19,12 @@ export const asyncIncrement = () => {
                 type: ASYNC_INCREMENT
             })
         }, 2000)
+    }
+}
 
+export const changeTheme = (newTheme) => {
+    return {
+        type: CHANGE_THEME,
+        payload: newTheme
     }
 }

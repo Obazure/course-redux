@@ -2,8 +2,8 @@ import './styles.css'
 import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import logger from 'redux-logger'
-import { rootReducer } from './redux/rootReducer'
-import { increment, decrement, asyncIncrement } from './redux/actions'
+import { rootReducer } from './redux/reducers.js'
+import { increment, decrement, asyncIncrement, changeTheme } from './redux/actions'
 
 const store = createStore(
     rootReducer,
@@ -29,15 +29,14 @@ btnAsync.addEventListener('click', () => {
     store.dispatch(asyncIncrement())
 })
 
+btnTheme.addEventListener('click', () => {
+    const newTheme = document.body.classList.contains('dark') ? 'light' : 'dark'
+    store.dispatch(changeTheme(newTheme))
+})
+
 store.subscribe(() => {
     const state = store.getState()
-    counter.textContent = state.toString()
+    counter.textContent = state.counter.toString()
+    document.body.className = state.theme.value
 })
 store.dispatch({ type: 'INIT_APPLICATION' })
-
-
-btnTheme.addEventListener('click', () => {
-    // document.body.classList.toggle('dark')
-    console.log('no theme change is here yet.')
-})
-
