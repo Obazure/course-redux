@@ -1,4 +1,4 @@
-import { INCREMENT, DECREMENT } from './redux/types'
+import { INCREMENT, DECREMENT } from './types'
 
 export function rootReducer(state, action) {
     switch (action.type) {
