@@ -4,10 +4,20 @@ import thunk from 'redux-thunk'
 import { rootReducer } from './redux/rootReducer'
 import { increment, decrement, asyncIncrement } from './redux/actions'
 
+function logger(state) {
+    return function (next) {
+        return function (action) {
+            console.log("State", state)
+            console.log("Action", action)
+            return next(action)
+        }
+    }
+}
+
 const store = createStore(
     rootReducer,
     0,
-    applyMiddleware(thunk)
+    applyMiddleware(thunk, logger)
 )
 
 const counter = document.getElementById('counter')
