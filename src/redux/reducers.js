@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { INCREMENT, DECREMENT, ASYNC_INCREMENT, CHANGE_THEME } from './types'
+import { INCREMENT, DECREMENT, ASYNC_INCREMENT, CHANGE_THEME, DISABLE_BUTTONS, ENABLE_BUTTONS } from './types'
 
 export function counterReducer(state = 0, action) {
     switch (action.type) {
@@ -26,7 +26,19 @@ export function themeReducer(state = initialThemeState, action) {
     }
 }
 
+
+export function buttonDisableReducer(state = false, action) {
+    switch (action.type) {
+        case DISABLE_BUTTONS:
+            return true
+        case ENABLE_BUTTONS:
+            return false
+        default: return state
+    }
+}
+
 export const rootReducer = combineReducers({
     counter: counterReducer,
-    theme: themeReducer
+    theme: themeReducer,
+    disabled: buttonDisableReducer
 })
