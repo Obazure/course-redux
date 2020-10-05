@@ -1,5 +1,5 @@
 import './styles.css'
-import {createStore} from './redux/createStore'
+import {createStore} from 'redux'
 import {rootReducer} from './redux/rootReducer'
 
 const store = createStore(rootReducer, 0)
