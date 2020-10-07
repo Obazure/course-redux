@@ -1,5 +1,5 @@
 export function createStore(rootReducer, intialState) {
-    let state = rootReducer(intialState, { type: '__INIT__' })
+    let state = rootReducer(intialState, {type: '__INIT__'})
     const subscribers = []
 
     return {
